@@ -154,7 +154,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>DoubleImpact.us</h1>
+        <h1>Double Impact Project</h1>
         <div class="balance-section">
             <div class="democrat">
                 <h2 id="democrat-amount">$5,115</h2>
@@ -173,10 +173,10 @@
         </div>
         <div class="donate-section">
             <div class="donate-to-democratic">
-                <button class="donate-button-democratic" onclick="window.open('https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations', 'newwindow', 'width=1000,height=1000'); return false;">Donate to Democratic Party</button>
+                <button class="donate-button-democratic" onclick="window.open('https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button>
             </div>
             <div class="donate-to-republican">
-                <button class="donate-button-republican" onclick="window.open('https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations', 'newwindow', 'width=1000,height=1000'); return false;">Donate to Republican Party</button>
+                <button class="donate-button-republican" onclick="window.open('https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
             </div>
         </div>
     </div>
@@ -186,7 +186,7 @@
             const total = democratAmount + republicanAmount;
             if (total === 0) return 0;
             const balance = (republicanAmount - democratAmount) / total;
-            const maxRotation = 15; // Maximum rotation angle in degrees
+            const maxRotation = 20; 
             return balance * maxRotation;
         }
 
