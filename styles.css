@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8ecc9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align: left;
+    letter-spacing: 2px;
+    background-color: #fee971; 
+    width: 100%; 
+    box-sizing: border-box; 
+    border-radius: 10px 10px 0 0; 
+}
+
+.balance-section {
+    position: relative;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.democrat, .republican {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.democrat {
+    left: 0;
+    color: #0056b3;
+}
+
+.republican {
+    right: 0;
+    color: #b30000;
+}
+
+.democrat img, .republican img {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.balance-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    background-color: #ffd700;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.pivot-triangle {
+    position: absolute;
+    left: 50%;
+    top: 58%; /* Adjust as necessary to place it under the balance bar */
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #ffd700; /* Same color as the balance bar */
+}
+
+.center-box {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.center-box img {
+    width: 80px;
+    margin: 0 10px;
+}
+
+.total-amount {
+    color: #d4af37;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.donate-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.donate-button-democratic {
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.donate-button-democratic:hover {
+    background-color: #005ea6;
+}
+
+.donate-button-republican {
+    background-color: #b30000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.donate-button-republican:hover {
+    background-color:  #b30000;
+}
+
+.donate-to-republican {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donate-to-republican img {
+    margin-left: 10px;
+    height: 30px;
+}
+
+.donate-to-democratic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donate-to-democratic img {
+    margin-left: 10px;
+    height: 30px;
+}
