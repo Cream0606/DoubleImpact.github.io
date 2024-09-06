@@ -166,8 +166,8 @@ h1 {
 }
 
 .charity-image {
-    width: 200px; 
-    height: 200px;
-    object-fit: cover; 
+    width: 10px; 
+    height: 100px;
+    object-fit: contain; 
     margin: 10px;
 }
