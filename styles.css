@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    height: 100vh;
+    height: 100dvh;
 }
 
 .container {
@@ -15,8 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
     position: relative;
 }
 
@@ -60,30 +59,6 @@ h1 {
 .democrat img, .republican img {
     width: 100px; 
     height: auto;
-}
-
-.balance-bar {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 10px;
-    background-color: #ffd700;
-    transform-origin: center;
-    transition: transform 0.5s ease;
-}
-
-.pivot-triangle {
-    position: absolute;
-    left: 50%;
-    top: 58%; /* Adjust as necessary to place it under the balance bar */
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #ffd700; /* Same color as the balance bar */
 }
 
 .center-box {
@@ -159,6 +134,79 @@ h1 {
 }
 .faq-section-container {
     margin-top: 20px;
+}
+
+.faq-section-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.accordion {
+    font-size: inherit;
+    padding: 1.2em 2em;
+    width: 100%;
+    transition: box-shadow .2s ease;
+}
+
+
+.accordion__item {
+    margin-bottom: 1em;
+}
+
+.accordion__head {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion__title {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.accordion__opener {
+    display: inline;
+    margin-left: .5rem;
+}
+
+.accordion__opener input {
+    display: none;
+}
+
+.accordion__opener label {
+    cursor: pointer;
+}
+
+.accordion__opener label i {
+    display: inline-block;
+    transition: transform .2s ease;
+    font-style: normal;
+}
+
+.accordion__description {
+    overflow: hidden;
+    margin-top: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .2s, margin-top .2s; 
+    color: #666;
+}
+
+.accordion__description p {
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.accordion__opener input:checked + label i {
+    transform: rotate(90deg);
+}
+
+.accordion__head:has(.accordion__opener input:checked) + .accordion__description {
+    margin-top: 10px;
+    grid-template-rows: 1fr;
 }
 
 .faq-toggle-button {
