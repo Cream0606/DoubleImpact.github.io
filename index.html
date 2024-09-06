@@ -14,17 +14,14 @@
                 <h2 id="democrat-amount">$5,115</h2>
                 <img src="pictures/democratic.png" alt="Democrat">
             </div>
-            <div id="balance-bar" class="balance-bar"></div>
-            <div class="pivot-triangle"></div> 
+          
             <div class="republican">
                 <h2 id="republican-amount">$8,344</h2>
                 <img src="pictures/republican.png" alt="Republican">
             </div>
             <div class="center-box">
                 <div id="total-amount" class="total-amount">$0</div>
-                <img class="charity-image" src="pictures/Make-A-Wish.png" alt="Make-A-Wish">
-                <img class="charity-image" src="pictures/systemicaltruism.jpeg" alt="Systemic-Altruism">
-                <img class="charity-image" src="pictures/Feeding_America.png" alt="Feeding America">
+
             </div>
         </div>
 
@@ -34,22 +31,22 @@
         </div>
 
         <div class="charities-section">
-            <h2>Our Supported Charities</h2>
+            <h2>Donating to multiple charities.</h2>
             <div class="charities-grid">
                 <div class="charity-item">
                     <img class="charity-image" src="pictures/Make-A-Wish.png" alt="Make-A-Wish">
                     <h3>Make-A-Wish</h3>
-                    <p>Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times.</p>
+                    <p>Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child's dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.</p>
                 </div>
                 <div class="charity-item">
                     <img class="charity-image" src="pictures/systemicaltruism.jpeg" alt="Systemic-Altruism">
                     <h3>Systemic Altruism</h3>
-                    <p>Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems.</p>
+                    <p> Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.</p>
                 </div>
                 <div class="charity-item">
                     <img class="charity-image" src="pictures/Feeding_America.png" alt="Feeding America">
                     <h3>Feeding America</h3>
-                    <p>Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity.</p>
+                    <p>Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.</p>
                 </div>
             </div>
         </div>
@@ -72,32 +69,11 @@
                         $1025 was submitted on the Democratic side
                         $1100 was submitted on Republican side
                         Thus, $2,050 goes to non-partisan charities. $75 goes to the Republican Party. $0 goes to Democrats, and your $25 donation contributed $50 to charity! </div>
-                <div class="faq-item">
-                    <h3>What Charities are we donating to?</h3>
-                    <p><strong>Make-A-Wish</strong><br>
-                        Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child's dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.
-                    </p>
-                    
-                    <p><strong>Systemic Altruism</strong><br>
-                        Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.
-                    </p>
-                
-                    <p><strong>Feeding America</strong><br>
-                        Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.
-                    </p>
-                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function calculateRotation(democratAmount, republicanAmount) {
-            const total = democratAmount + republicanAmount;
-            if (total === 0) return 0;
-            const balance = (republicanAmount - democratAmount) / total;
-            const maxRotation = 20; 
-            return balance * maxRotation;
-        }
 
         function calculateCenterAmount(democratAmount, republicanAmount) {
             return Math.min(democratAmount, republicanAmount) * 2;
@@ -107,10 +83,6 @@
             const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
             const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
             
-            const rotationAngle = calculateRotation(democratAmount, republicanAmount);
-            const balanceBar = document.getElementById("balance-bar");
-            balanceBar.style.transform = `translateX(-50%) rotate(${rotationAngle}deg)`;
-
             const centerAmount = calculateCenterAmount(democratAmount, republicanAmount);
             const totalAmountElement = document.getElementById("total-amount");
             totalAmountElement.textContent = `$${centerAmount.toLocaleString()}`;
