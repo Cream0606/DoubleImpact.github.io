@@ -164,3 +164,10 @@ h1 {
     margin-left: 10px;
     height: 30px;
 }
+
+.charity-image {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover; 
+    margin: 10px;
+}
