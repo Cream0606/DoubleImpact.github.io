@@ -27,17 +27,42 @@
                 <img class="charity-image" src="pictures/Feeding_America.png" alt="Feeding America">
             </div>
         </div>
+
         <div class="donate-section">
             <div class="donate-to-democratic">
                 <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
-                <!--https://dashboard.stripe.com/test/payment-links/plink_1PvfZ4Cq47czbUCHqcGO52x4--> 
             </div>
             <div class="donate-to-republican">
                 <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
             </div>
         </div>
+
+        <div class="faq-section-container">
+            <button class="faq-toggle-button">Want To Learn More?</button>
+            <div class="faq-section" id="faq-section">
+                <div class="faq-item">
+                    <h3>What is the Double Impact Project?</h3>
+                    <p> In every political campaign, Democrats and Republicans donate vast amounts of money to their parties to cancel out the media noise from the opposing parties. We believe that there is a better way.
+                        The Double Impact Project seeks to redirect a percentage of the funding used for political advertising and opposition attacks. Ideally saving millions of dollars that are burned every election cycle on ad campaigns and media tactics, and instead put the money to better use, helping needed communities and supporting important causes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What Charities are we donating to?</h3>
+                    <p><strong>Make-A-Wish</strong><br>
+                        Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child's dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.
+                    </p>
+                    
+                    <p><strong>Systemic Altruism</strong><br>
+                        Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.
+                    </p>
+                
+                    <p><strong>Feeding America</strong><br>
+                        Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <script>
         function calculateRotation(democratAmount, republicanAmount) {
             const total = democratAmount + republicanAmount;
@@ -62,6 +87,13 @@
             const centerAmount = calculateCenterAmount(democratAmount, republicanAmount);
             const totalAmountElement = document.getElementById("total-amount");
             totalAmountElement.textContent = `$${centerAmount.toLocaleString()}`;
+
+            const faqToggleButton = document.querySelector('.faq-toggle-button');
+            const faqSection = document.getElementById('faq-section');
+            faqToggleButton.addEventListener('click', () => {
+                faqSection.style.maxHeight = faqSection.style.maxHeight ? null : faqSection.scrollHeight + "px";
+                faqToggleButton.textContent = faqSection.style.maxHeight ? 'Hide Info' : 'Want To Learn More?';
+            });
         });
     </script>
 </body>
