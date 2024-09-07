@@ -152,12 +152,20 @@
             document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()}`;
 
             // Set the color of the remaining circle based on the winning party
+            const remainingCircle = document.querySelector('.remaining-circle');
+            const remainingAmountElement = document.getElementById('remaining-amount');
             if (democratAmount > republicanAmount) {
-                document.querySelector('.remaining-circle').style.borderColor = '#0015BC'; // Democrat blue
+                remainingCircle.style.borderColor = '#0015BC'; // Democrat blue
+                remainingCircle.style.color = '#0015BC';
+                remainingAmountElement.style.color = '#0015BC';
             } else if (republicanAmount > democratAmount) {
-                document.querySelector('.remaining-circle').style.borderColor = '#FF0000'; // Republican red
+                remainingCircle.style.borderColor = '#FF0000'; // Republican red
+                remainingCircle.style.color = '#FF0000';
+                remainingAmountElement.style.color = '#FF0000';
             } else {
-                document.querySelector('.remaining-circle').style.borderColor = '#c29d25'; // Neutral color for a tie
+                remainingCircle.style.borderColor = '#c29d25'; // Neutral color for a tie
+                remainingCircle.style.color = '#c29d25';
+                remainingAmountElement.style.color = '#c29d25';
             }
         }
 
