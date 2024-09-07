@@ -32,7 +32,7 @@
                 </div>
                <div class="center-box">
                 <div id="total-amount" class="total-amount">$0</div>
-
+                <div id="remaining-amount" class="remaining-amount">$0</div>
             </div>
                 <div class="republican">
                     <h2 id="republican-amount">$8,344</h2>
@@ -158,6 +158,7 @@
             // Display original amounts
             document.getElementById("democrat-amount").textContent = `$${democratAmount.toLocaleString()}`;
             document.getElementById("republican-amount").textContent = `$${republicanAmount.toLocaleString()}`;
+            document.getElementById("remaining-amount").textContent = `$${remainingAmount.toLocaleString()}`;
 
             // Update bar widths and colors
             updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount);

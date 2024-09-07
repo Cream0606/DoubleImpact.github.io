@@ -80,8 +80,8 @@ body {
 
 
 .total-amount {
-    color: #d4af37;
-    font-size: 36px;
+    color: #47a56d;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -396,5 +396,5 @@ body {
 }
 
 .charity-bar {
-    background-color: #37d476;
+    background-color: #47a56d;
 }
