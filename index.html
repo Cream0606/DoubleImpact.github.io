@@ -19,37 +19,30 @@
         <div class="donate-section">
             <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
             <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
-    </div>
+        </div>
+        <div class="countdown-container">
+            <p class="countdown-text"><span id="days-remaining"></span> Days remaining</p>
+        </div>
         <div class="balance-section">
             <div class="circle-container">
                 <div class="circle democrat-circle">
                     <p>donated</p>
                     <span id="democrat-amount">$5,115</span>
-                    
-
                 </div>
                 <div class="circle republican-circle">
                     <p>donated</p>
-
                     <span id="republican-amount">$8,344</span>
-
                 </div>
-           
                 <div class="circle charity-circle">
                     <p>for charity</p>
                     <span id="charity-amount">$0</span>
-                    
                 </div>
                 <div class="circle remaining-circle">
                     <p>for party</p>
-
                     <span id="remaining-amount">$0</span>
                 </div>
             </div>
         </div>
-
-       
-
         <div class="charities-section">
             <div class="charities-header-container">
                 <h2 class="charities-title">Donating to multiple charities</h2>
@@ -169,6 +162,13 @@
             }
         }
 
+        function updateDaysRemaining() {
+            const now = new Date();
+            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+            const daysRemaining = endOfMonth.getDate() - now.getDate() + 1;
+            document.getElementById('days-remaining').textContent = daysRemaining;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
             const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
@@ -177,6 +177,11 @@
             
             // Update circle sizes and amounts
             updateCircleSizes(democratAmount, republicanAmount, charityAmount, remainingAmount);
+            
+            // Update days remaining
+            updateDaysRemaining();
+            // Update every day at midnight
+            setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
         });
     </script>
 </body>

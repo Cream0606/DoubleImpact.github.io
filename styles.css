@@ -28,7 +28,7 @@ body {
 .header-container {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
     align-items: center;
 }
 
@@ -200,7 +200,7 @@ body {
 
 .accordion__input:checked ~ .accordion__description {
     max-height: 600px; /* Adjust this value based on your content */
-    transition: max-height 0.5s ease-in;
+    transition: max-height 0.2s ease-in;
 }
 
 .faq-toggle-button {
@@ -224,7 +224,7 @@ body {
 .faq-section {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.2s ease;
 }
 
 .faq-item {
@@ -364,7 +364,7 @@ body {
     height: 100%;
 background-color: white;
     float: left;    
-    transition: width 0.5s ease-in-out;
+    transition: width 0.2s ease-in-out;
     border-radius: 8px;
    
 }
@@ -409,7 +409,7 @@ background-color: white;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
     border-radius: 50%;
     min-width: 120px; 
     min-height: 120px; 
@@ -469,6 +469,31 @@ background-color: white;
     .donate-button-republican {
         width: 100%;
         max-width: 92vw;             
+    }
+}
+
+.countdown-container {
+    text-align: center;
+    margin: -36px 0;
+}
+
+.countdown-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #676767;
+}
+
+#days-remaining {
+    color: #3b8458;
+}
+
+@media (max-width: 480px) {
+    .countdown-container {
+        margin-top: 16px;
+    }
+    
+    .countdown-text {
+        font-size: 16px;
     }
 }
 
