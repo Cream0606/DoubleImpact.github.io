@@ -361,7 +361,6 @@ body {
     height: 20px;
     background-color: #f0f0f0;
     overflow: hidden;
-    margin-bottom: 10px;
 }
 
 .bar {
@@ -380,7 +379,7 @@ body {
 
 .balance-section {
     position: relative;
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -398,8 +397,4 @@ body {
 
 .charity-bar {
     background-color: #37d476;
-}
-
-.remaining-bar {
-    background-color: #c29d25; /* Or any color you prefer for the remaining amount */
 }

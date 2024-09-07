@@ -135,6 +135,15 @@
 
             document.getElementById('charity-bar').style.width = `${charityPercentage}%`;
             document.getElementById('remaining-bar').style.width = `${remainingPercentage}%`;
+
+            // Set the color of the remaining bar based on the winning party
+            if (democratAmount > republicanAmount) {
+                document.getElementById('remaining-bar').style.backgroundColor = '#0015BC'; // Democrat blue
+            } else if (republicanAmount > democratAmount) {
+                document.getElementById('remaining-bar').style.backgroundColor = '#FF0000'; // Republican red
+            } else {
+                document.getElementById('remaining-bar').style.backgroundColor = '#c29d25'; // Neutral color for a tie
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -150,7 +159,7 @@
             document.getElementById("democrat-amount").textContent = `$${democratAmount.toLocaleString()}`;
             document.getElementById("republican-amount").textContent = `$${republicanAmount.toLocaleString()}`;
 
-            // Update bar widths
+            // Update bar widths and colors
             updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount);
 
             const faqToggleButton = document.querySelector('.faq-toggle-button');
