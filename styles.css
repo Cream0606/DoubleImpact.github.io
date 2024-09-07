@@ -51,16 +51,6 @@ body {
     line-height: 1.5;
 }
 
-.balance-section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 48px;
-    width: 100%;
-    max-width: 800px; 
-    margin: 0 auto; 
-}
-
 .democrat {
     color: #0056b3;
 }
@@ -300,7 +290,6 @@ body {
     padding: 24px 24px 0 24px;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensure all items have the same height */
 }
 
 .charity-item h3 {  
@@ -401,9 +390,7 @@ background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 0 48px;
     width: 100%;
-    max-width: 1000px; 
     margin: 0 auto; 
 }
 
@@ -412,6 +399,8 @@ background-color: white;
     justify-content: center;
     align-items: center;
     min-height: 250px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .circle {
@@ -422,10 +411,11 @@ background-color: white;
     font-weight: 600;
     transition: all 0.5s ease-in-out;
     border-radius: 50%;
-    margin-right: -24px;
     min-width: 120px; 
     min-height: 120px; 
+    margin: 0 -24px;
 }
+
 .circle p {font-size: 16px; height: 12px; margin: 12px;}
 
 .democrat-circle {
@@ -446,5 +436,39 @@ background-color: white;
 .remaining-circle {
     border: 1px dashed #c29d25; 
     color: #c29d25;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin:0;
+    }
+    .accordion {
+        width: 80%;
+        padding: 0 16px;
+    }
+
+    .circle-container {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .circle {
+        margin-bottom: -48px;
+        aspect-ratio: 1 / 1;
+    }
+    .donate-section {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+    }
+    .donate-button-democratic {
+        width: 100%;
+        max-width: 92vw;
+    }
+    .donate-button-republican {
+        width: 100%;
+        max-width: 92vw;             
+    }
 }
 
