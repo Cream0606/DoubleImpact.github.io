@@ -5,102 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Double Impact</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Double Impact Project</h1>
+        <div class="header-container">
+            <div class="header-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h1 class="header-title">Double Impact Project</h1>
+            <p class="header-description">Transforming political donations into charitable impact. Your contribution doubles its power, supporting your party while funding vital causes.</p>
+        </div>
+        <div class="donate-section">
+            <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
+            <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
+        </div>
+        <div class="countdown-container">
+            <p class="countdown-text"><span id="days-remaining"></span> Days remaining</p>
+        </div>
         <div class="balance-section">
-            <div class="democrat">
-                <h2 id="democrat-amount">$5,115</h2>
-                <img src="pictures/democratic.png" alt="Democrat">
-            </div>
-            <div id="balance-bar" class="balance-bar"></div>
-            <div class="pivot-triangle"></div> 
-            <div class="republican">
-                <h2 id="republican-amount">$8,344</h2>
-                <img src="pictures/republican.png" alt="Republican">
-            </div>
-            <div class="center-box">
-                <div id="total-amount" class="total-amount">$0</div>
-                <img class="charity-image" src="pictures/Make-A-Wish.png" alt="Make-A-Wish">
-                <img class="charity-image" src="pictures/systemicaltruism.jpeg" alt="Systemic-Altruism">
-                <img class="charity-image" src="pictures/Feeding_America.png" alt="Feeding America">
+            <div class="circle-container">
+                <div class="circle democrat-circle">
+                    <p>donated</p>
+                    <span id="democrat-amount">$5,115</span>
+                </div>
+                <div class="circle republican-circle">
+                    <p>donated</p>
+                    <span id="republican-amount">$8,344</span>
+                </div>
+                <div class="circle charity-circle">
+                    <p>for charity</p>
+                    <span id="charity-amount">$0</span>
+                </div>
+                <div class="circle remaining-circle">
+                    <p>for party</p>
+                    <span id="remaining-amount">$0</span>
+                </div>
             </div>
         </div>
-
-        <div class="donate-section">
-                <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
-                <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
+        <div class="charities-section">
+            <div class="charities-header-container">
+                <h2 class="charities-title">Donating to multiple charities</h2>
+                <p class="charities-description">
+                    By participating in Double Impact, you're not just supporting your political views, but also funding vital causes that benefit society as a whole.
+                </p>
+            </div>
+            <div class="charities-grid">
+                <div class="charity-item">
+                    <div class="charity-image-container"><img class="charity-image" src="pictures/Make-A-Wish.png" alt="Make-A-Wish"></div>
+                    
+                    <h3>Make-A-Wish</h3>
+                    <p>Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. <br/> <br/> Every donation helps bring a child's dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.</p>
+                </div>
+                <div class="charity-item">
+                    <div class="charity-image-container"><img class="charity-image" src="pictures/systemicaltruism.jpeg" alt="Systemic-Altruism"></div>
+                    <h3>Systemic Altruism</h3>
+                    <p> Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. <br/> <br/> Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.</p>
+                </div>
+                <div class="charity-item">
+                    <div class="charity-image-container"><img class="charity-image" src="pictures/Feeding_America.png" alt="Feeding America"></div>
+                    <h3>Feeding America</h3>
+                    <p>Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. <br/> <br/> Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.</p>
+                </div>
+            </div>
         </div>
 
         <div class="faq-section-container">
-            <button class="faq-toggle-button">Want To Learn More?</button>
-            <div class="faq-section" id="faq-section">
-                <div class="faq-item">
-                    <h3>How does Double Impact work?</h3>
-                    <p> It’s an unusual yet strictly optimal scheme whereby it becomes possible to channel the “clashing” money sent to opposing political campaigns into neutral charities donors to both parties agree upon. But donors don't want the parties to be equal? The point is that there are two ways to alter the outcome of a campaign: giving money to your side or reducing money going to the other side.
+            <h2>Learn More</h2>
+            <div class="accordion">
+                <div class="accordion__item">
+                    <input type="checkbox" id="faq1" class="accordion__input">
+                    <label for="faq1" class="accordion__head">
+                        <h3 class="accordion__title">How does Double Impact work?</h3>
+                        <div class="accordion__opener">
+                            <i>▼</i>
+                        </div>
+                    </label>
+                    <div class="accordion__description">
+                        <p>It's an unusual yet strictly optimal scheme whereby it becomes possible to channel the "clashing" money sent to opposing political campaigns into neutral charities donors to both parties agree upon. But donors don't want the parties to be equal? The point is that there are two ways to alter the outcome of a campaign: giving money to your side or reducing money going to the other side.</p>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>How often is the money totalled up and donated?
-                    </h3>
-                    <p> Every 30 days</div>
-                <div class="faq-item">
-                    <h3>How does this add value?</h3>
-                    <p> If you donate to the side that has less money, any donation you make becomes a 2x donation to charity! So if the Democrats have $1000 and the Republicans have $1100 and you donate $25 to the side of the Democrats, that $25 will also take $25 from the Republican party’s coffers.
-                        The total money is $2,125. 
-                        $1025 was submitted on the Democratic side
-                        $1100 was submitted on Republican side
-                        Thus, $2,050 goes to non-partisan charities. $75 goes to the Republican Party. $0 goes to Democrats, and your $25 donation contributed $50 to charity! </div>
-                <div class="faq-item">
-                    <h3>What Charities are we donating to?</h3>
-                    <p><strong>Make-A-Wish</strong><br>
-                        Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child's dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.
-                    </p>
-                    
-                    <p><strong>Systemic Altruism</strong><br>
-                        Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.
-                    </p>
-                
-                    <p><strong>Feeding America</strong><br>
-                        Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.
-                    </p>
+                <div class="accordion__item">
+                    <input type="checkbox" id="faq2" class="accordion__input">
+                    <label for="faq2" class="accordion__head">
+                        <h3 class="accordion__title">How often is the money totalled up and donated?</h3>
+                        <div class="accordion__opener">
+                            <i>▼</i>
+                        </div>
+                    </label>
+                    <div class="accordion__description">
+                        <p>Every 30 days</p>
+                    </div>
+                </div>
+                <div class="accordion__item">
+                    <input type="checkbox" id="faq3" class="accordion__input">
+                    <label for="faq3" class="accordion__head">
+                        <h3 class="accordion__title">How does this add value?</h3>
+                        <div class="accordion__opener">
+                            <i>▼</i>
+                        </div>
+                    </label>
+                    <div class="accordion__description">
+                        <p>If you donate to the side that has less money, any donation you make becomes a 2x donation to charity! So if the Democrats have $1000 and the Republicans have $1100 and you donate $25 to the side of the Democrats, that $25 will also take $25 from the Republican party's coffers. The total money is $2,125. $1025 was submitted on the Democratic side $1100 was submitted on Republican side Thus, $2,050 goes to non-partisan charities. $75 goes to the Republican Party. $0 goes to Democrats, and your $25 donation contributed $50 to charity!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function calculateRotation(democratAmount, republicanAmount) {
-            const total = democratAmount + republicanAmount;
-            if (total === 0) return 0;
-            const balance = (republicanAmount - democratAmount) / total;
-            const maxRotation = 20; 
-            return balance * maxRotation;
-        }
+    <script src="script.js"></script>
 
-        function calculateCenterAmount(democratAmount, republicanAmount) {
-            return Math.min(democratAmount, republicanAmount) * 2;
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
-            const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
-            
-            const rotationAngle = calculateRotation(democratAmount, republicanAmount);
-            const balanceBar = document.getElementById("balance-bar");
-            balanceBar.style.transform = `translateX(-50%) rotate(${rotationAngle}deg)`;
-
-            const centerAmount = calculateCenterAmount(democratAmount, republicanAmount);
-            const totalAmountElement = document.getElementById("total-amount");
-            totalAmountElement.textContent = `$${centerAmount.toLocaleString()}`;
-
-            const faqToggleButton = document.querySelector('.faq-toggle-button');
-            const faqSection = document.getElementById('faq-section');
-            faqToggleButton.addEventListener('click', () => {
-                faqSection.style.maxHeight = faqSection.style.maxHeight ? null : faqSection.scrollHeight + "px";
-                faqToggleButton.textContent = faqSection.style.maxHeight ? 'Hide Info' : 'Want To Learn More?';
-            });
-        });
-    </script>
 </body>
 </html>
