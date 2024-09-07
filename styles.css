@@ -207,7 +207,6 @@ body {
     margin-top: 10px;
     grid-template-rows: 1fr;
 }
-
 .faq-toggle-button {
     background-color: #005ea6;
     color: white;
@@ -262,33 +261,49 @@ body {
 .charities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .charity-item {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 24px 24px 0 24px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure all items have the same height */
 }
 
-.charity-item h3 {
+.charity-item h3 {  
+    text-align: left;
     font-size: 18px;
     color: #333;
     margin: 10px 0;
 }
 
 .charity-item p {
-    font-size: 14px;
+    text-align: left;
+    font-size: 16px;
     color: #666;
     line-height: 1.4;
 }
 
+.charity-image-container {
+    height: 120px; /* Set a fixed height for the image container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
 .charity-image {
-    width: 100px;
-    height: 100px;
+    width: 140px;
     object-fit: contain;
-    margin-bottom: 10px;
+}
+
+.charities-grid .charity-item:nth-child(2) .charity-image {
+    width: 80px;
+    height: 80px;
 }
 
 @media (max-width: 800px) {
