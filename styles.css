@@ -68,16 +68,9 @@ body {
 }
 
 .democrat img, .republican img {
-    width: 64px; 
+    width: 48px; 
     height: auto;
 }
-
-.center-box {
-   
-    background-color: white;
-    padding: 10px 20px;
-}
-
 
 .total-amount {
     color: #47a56d;
