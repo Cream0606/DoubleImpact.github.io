@@ -17,19 +17,26 @@
             <p class="header-description">Transforming political donations into charitable impact. Your contribution doubles its power, supporting your party while funding vital causes.</p>
         </div>
         <div class="balance-section">
-            <div class="democrat">
-                <h2 id="democrat-amount">$5,115</h2>
-                <img src="pictures/democratic.png" alt="Democrat">
+            <div class="bar-container">
+                <div class="bar democrat-bar" id="democrat-bar"></div>
+                <div class="bar republican-bar" id="republican-bar"></div>
             </div>
-          
-            <div class="republican">
-                <h2 id="republican-amount">$8,344</h2>
-                <img src="pictures/republican.png" alt="Republican">
-            </div>
-            <div class="center-box">
+            <div class="balance-section-container">
+                <div class="democrat">
+                    <h2 id="democrat-amount">$5,115</h2>
+                    <img src="pictures/democratic.png" alt="Democrat">
+                </div>
+               <div class="center-box">
                 <div id="total-amount" class="total-amount">$0</div>
 
             </div>
+                <div class="republican">
+                    <h2 id="republican-amount">$8,344</h2>
+                    <img src="pictures/republican.png" alt="Republican">
+                </div>
+            </div>
+          
+           
         </div>
 
         <div class="donate-section">
@@ -108,6 +115,15 @@
             return Math.min(democratAmount, republicanAmount) * 2;
         }
 
+        function updateBarWidths(democratAmount, republicanAmount) {
+            const total = democratAmount + republicanAmount;
+            const democratPercentage = (democratAmount / total) * 100;
+            const republicanPercentage = (republicanAmount / total) * 100;
+            
+            document.getElementById('democrat-bar').style.width = `${democratPercentage}%`;
+            document.getElementById('republican-bar').style.width = `${republicanPercentage}%`;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
             const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
@@ -115,6 +131,8 @@
             const centerAmount = calculateCenterAmount(democratAmount, republicanAmount);
             const totalAmountElement = document.getElementById("total-amount");
             totalAmountElement.textContent = `$${centerAmount.toLocaleString()}`;
+
+            updateBarWidths(democratAmount, republicanAmount);
 
             const faqToggleButton = document.querySelector('.faq-toggle-button');
             const faqSection = document.getElementById('faq-section');
