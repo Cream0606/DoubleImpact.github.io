@@ -54,8 +54,11 @@ body {
 .balance-section {
     position: relative;
     display: flex;
-    width: 80%;
-    justify-content: space-between;
+    flex-direction: column;
+    padding: 48px;
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto; 
 }
 
 .democrat {
@@ -398,20 +401,50 @@ background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 48px;
+    padding: 0 48px;
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto; 
 }
 
-.balance-section-container {
-    width: 50%;
-    margin: 0 auto;
+.circle-container {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
 }
 
-.democrat {
-    text-align: center;
+.circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+    border-radius: 50%;
+    margin-right: -24px;
+    min-width: 120px; 
+    min-height: 120px; 
 }
-.charity-bar {
-    background-color: #47a56d;
+.circle p {font-size: 16px; height: 12px; margin: 12px;}
+
+.democrat-circle {
+    border: 1px dashed #0015BC; 
+    color: #0015BC;
 }
+
+.republican-circle {
+    border: 1px dashed #FF0000;     
+    color: #FF0000;
+}
+
+.charity-circle {
+    border: 1px dashed #47a56d; 
+    color: #47a56d;
+}
+
+.remaining-circle {
+    border: 1px dashed #c29d25; 
+    color: #c29d25;
+}
+

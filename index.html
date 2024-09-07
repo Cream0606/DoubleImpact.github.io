@@ -21,19 +21,28 @@
             <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
     </div>
         <div class="balance-section">
-            <div class="bar-container">
-                <div class="bar democrat-bar" id="democrat-bar">
+            <div class="circle-container">
+                <div class="circle democrat-circle">
+                    <p>donated</p>
                     <span id="democrat-amount">$5,115</span>
+                    
+
                 </div>
-                <div class="bar republican-bar" id="republican-bar">
+                <div class="circle republican-circle">
+                    <p>donated</p>
+
                     <span id="republican-amount">$8,344</span>
+
                 </div>
-            </div>
-            <div class="bar-container">
-                <div class="bar charity-bar" id="charity-bar">
+           
+                <div class="circle charity-circle">
+                    <p>for charity</p>
                     <span id="charity-amount">$0</span>
+                    
                 </div>
-                <div class="bar remaining-bar" id="remaining-bar">
+                <div class="circle remaining-circle">
+                    <p>for party</p>
+
                     <span id="remaining-amount">$0</span>
                 </div>
             </div>
@@ -114,34 +123,36 @@
             return { charityAmount, remainingAmount };
         }
 
-        function updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount) {
+        function updateCircleSizes(democratAmount, republicanAmount, charityAmount, remainingAmount) {
             const totalParties = democratAmount + republicanAmount;
-            const democratPercentage = (democratAmount / totalParties) * 100;
-            const republicanPercentage = (republicanAmount / totalParties) * 100;
-            
-            document.getElementById('democrat-bar').style.width = `${democratPercentage}%`;
-            document.getElementById('republican-bar').style.width = `${republicanPercentage}%`;
-
             const totalCharity = charityAmount + remainingAmount;
-            const charityPercentage = (charityAmount / totalCharity) * 100;
-            const remainingPercentage = (remainingAmount / totalCharity) * 100;
+            const maxAmount = Math.max(totalParties, totalCharity);
 
-            document.getElementById('charity-bar').style.width = `${charityPercentage}%`;
-            document.getElementById('remaining-bar').style.width = `${remainingPercentage}%`;
+            function setCircleSize(element, amount) {
+                const size = Math.max(200, (amount / maxAmount) * 500); // Increased from 50 and 150 to 80 and 250
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.fontSize = `24px`; // Adjusted from 8 to 6 for larger text
+            }
+
+            setCircleSize(document.querySelector('.democrat-circle'), democratAmount);
+            setCircleSize(document.querySelector('.republican-circle'), republicanAmount);
+            setCircleSize(document.querySelector('.charity-circle'), charityAmount);
+            setCircleSize(document.querySelector('.remaining-circle'), remainingAmount);
 
             // Update amounts
             document.getElementById('democrat-amount').textContent = `$${democratAmount.toLocaleString()}`;
             document.getElementById('republican-amount').textContent = `$${republicanAmount.toLocaleString()}`;
-            document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()} to charity`;
-            document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()} ${democratAmount > republicanAmount ? "to democrats" : "to republicans"  }`;
+            document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()}`;
+            document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()}`;
 
-            // Set the color of the remaining bar based on the winning party
+            // Set the color of the remaining circle based on the winning party
             if (democratAmount > republicanAmount) {
-                document.getElementById('remaining-bar').style.backgroundColor = '#0015BC'; // Democrat blue
+                document.querySelector('.remaining-circle').style.borderColor = '#0015BC'; // Democrat blue
             } else if (republicanAmount > democratAmount) {
-                document.getElementById('remaining-bar').style.backgroundColor = '#FF0000'; // Republican red
+                document.querySelector('.remaining-circle').style.borderColor = '#FF0000'; // Republican red
             } else {
-                document.getElementById('remaining-bar').style.backgroundColor = '#c29d25'; // Neutral color for a tie
+                document.querySelector('.remaining-circle').style.borderColor = '#c29d25'; // Neutral color for a tie
             }
         }
 
@@ -151,8 +162,8 @@
             
             const { charityAmount, remainingAmount } = calculateAmounts(democratAmount, republicanAmount);
             
-            // Update bar widths and amounts
-            updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount);
+            // Update circle sizes and amounts
+            updateCircleSizes(democratAmount, republicanAmount, charityAmount, remainingAmount);
         });
     </script>
 </body>
