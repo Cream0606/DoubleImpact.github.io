@@ -132,7 +132,7 @@
             // Update amounts
             document.getElementById('democrat-amount').textContent = `$${democratAmount.toLocaleString()}`;
             document.getElementById('republican-amount').textContent = `$${republicanAmount.toLocaleString()}`;
-            document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()}to charity`;
+            document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()} to charity`;
             document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()} ${democratAmount > republicanAmount ? "to democrats" : "to republicans"  }`;
 
             // Set the color of the remaining bar based on the winning party

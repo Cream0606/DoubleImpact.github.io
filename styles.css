@@ -54,7 +54,7 @@ body {
 .balance-section {
     position: relative;
     display: flex;
-    width: 100%;
+    width: 80%;
     justify-content: space-between;
 }
 
@@ -374,6 +374,7 @@ background-color: white;
     float: left;    
     transition: width 0.5s ease-in-out;
     border-radius: 8px;
+   
 }
 .bar span {
     color: white;
@@ -411,7 +412,6 @@ background-color: white;
 .democrat {
     text-align: center;
 }
-
 .charity-bar {
     background-color: #47a56d;
 }
