@@ -16,37 +16,30 @@
             <h1 class="header-title">Double Impact Project</h1>
             <p class="header-description">Transforming political donations into charitable impact. Your contribution doubles its power, supporting your party while funding vital causes.</p>
         </div>
+        <div class="donate-section">
+            <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
+            <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
+    </div>
         <div class="balance-section">
             <div class="bar-container">
-                <div class="bar democrat-bar" id="democrat-bar"></div>
-                <div class="bar republican-bar" id="republican-bar"></div>
+                <div class="bar democrat-bar" id="democrat-bar">
+                    <span id="democrat-amount">$5,115</span>
+                </div>
+                <div class="bar republican-bar" id="republican-bar">
+                    <span id="republican-amount">$8,344</span>
+                </div>
             </div>
             <div class="bar-container">
-                <div class="bar charity-bar" id="charity-bar"></div>
-                <div class="bar remaining-bar" id="remaining-bar"></div>
-            </div>
-            <div class="balance-section-container">
-                <div class="democrat">
-                    <h2 id="democrat-amount">$5,115</h2>
-                    <img src="pictures/democratic.png" alt="Democrat">
+                <div class="bar charity-bar" id="charity-bar">
+                    <span id="charity-amount">$0</span>
                 </div>
-               <div class="center-box">
-                <div id="total-amount" class="total-amount">$0</div>
-                <div id="remaining-amount" class="remaining-amount">$0</div>
-            </div>
-                <div class="republican">
-                    <h2 id="republican-amount">$8,344</h2>
-                    <img src="pictures/republican.png" alt="Republican">
+                <div class="bar remaining-bar" id="remaining-bar">
+                    <span id="remaining-amount">$0</span>
                 </div>
             </div>
-          
-           
         </div>
 
-        <div class="donate-section">
-                <button class="donate-button-democratic" onclick="window.open('https://buy.stripe.com/test_aEU8zN32E6AG2Ry8wx', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Democratic Party</button> 
-                <button class="donate-button-republican" onclick="window.open('https://donate.stripe.com/test_6oE17lgTue38bo44gi', 'newwindow', 'width=1000,height=1000'); return false;">Donate to the Republican Party</button>
-        </div>
+       
 
         <div class="charities-section">
             <h2>Donating to multiple charities</h2>
@@ -136,6 +129,12 @@
             document.getElementById('charity-bar').style.width = `${charityPercentage}%`;
             document.getElementById('remaining-bar').style.width = `${remainingPercentage}%`;
 
+            // Update amounts
+            document.getElementById('democrat-amount').textContent = `$${democratAmount.toLocaleString()}`;
+            document.getElementById('republican-amount').textContent = `$${republicanAmount.toLocaleString()}`;
+            document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()}to charity`;
+            document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()} ${democratAmount > republicanAmount ? "to democrats" : "to republicans"  }`;
+
             // Set the color of the remaining bar based on the winning party
             if (democratAmount > republicanAmount) {
                 document.getElementById('remaining-bar').style.backgroundColor = '#0015BC'; // Democrat blue
@@ -152,23 +151,8 @@
             
             const { charityAmount, remainingAmount } = calculateAmounts(democratAmount, republicanAmount);
             
-            const totalAmountElement = document.getElementById("total-amount");
-            totalAmountElement.textContent = `$${charityAmount.toLocaleString()}`;
-
-            // Display original amounts
-            document.getElementById("democrat-amount").textContent = `$${democratAmount.toLocaleString()}`;
-            document.getElementById("republican-amount").textContent = `$${republicanAmount.toLocaleString()}`;
-            document.getElementById("remaining-amount").textContent = `$${remainingAmount.toLocaleString()}`;
-
-            // Update bar widths and colors
+            // Update bar widths and amounts
             updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount);
-
-            const faqToggleButton = document.querySelector('.faq-toggle-button');
-            const faqSection = document.getElementById('faq-section');
-            faqToggleButton.addEventListener('click', () => {
-                faqSection.style.maxHeight = faqSection.style.maxHeight ? null : faqSection.scrollHeight + "px";
-                faqToggleButton.textContent = faqSection.style.maxHeight ? 'Hide Info' : 'Want To Learn More?';
-            });
         });
     </script>
 </body>
