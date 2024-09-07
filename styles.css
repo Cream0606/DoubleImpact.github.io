@@ -358,10 +358,10 @@ body {
 
 .bar-container {
     width: 100%;
-    height: 30px;
+    height: 20px;
     background-color: #f0f0f0;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .bar {
@@ -394,4 +394,12 @@ body {
 
 .democrat {
     text-align: center;
+}
+
+.charity-bar {
+    background-color: #37d476;
+}
+
+.remaining-bar {
+    background-color: #c29d25; /* Or any color you prefer for the remaining amount */
 }

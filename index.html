@@ -21,6 +21,10 @@
                 <div class="bar democrat-bar" id="democrat-bar"></div>
                 <div class="bar republican-bar" id="republican-bar"></div>
             </div>
+            <div class="bar-container">
+                <div class="bar charity-bar" id="charity-bar"></div>
+                <div class="bar remaining-bar" id="remaining-bar"></div>
+            </div>
             <div class="balance-section-container">
                 <div class="democrat">
                     <h2 id="democrat-amount">$5,115</h2>
@@ -111,28 +115,43 @@
 
     <script>
 
-        function calculateCenterAmount(democratAmount, republicanAmount) {
-            return Math.min(democratAmount, republicanAmount) * 2;
+        function calculateAmounts(democratAmount, republicanAmount) {
+            const charityAmount = Math.min(democratAmount, republicanAmount) * 2;
+            const remainingAmount = Math.max(democratAmount, republicanAmount) - Math.min(democratAmount, republicanAmount);
+            return { charityAmount, remainingAmount };
         }
 
-        function updateBarWidths(democratAmount, republicanAmount) {
-            const total = democratAmount + republicanAmount;
-            const democratPercentage = (democratAmount / total) * 100;
-            const republicanPercentage = (republicanAmount / total) * 100;
+        function updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount) {
+            const totalParties = democratAmount + republicanAmount;
+            const democratPercentage = (democratAmount / totalParties) * 100;
+            const republicanPercentage = (republicanAmount / totalParties) * 100;
             
             document.getElementById('democrat-bar').style.width = `${democratPercentage}%`;
             document.getElementById('republican-bar').style.width = `${republicanPercentage}%`;
+
+            const totalCharity = charityAmount + remainingAmount;
+            const charityPercentage = (charityAmount / totalCharity) * 100;
+            const remainingPercentage = (remainingAmount / totalCharity) * 100;
+
+            document.getElementById('charity-bar').style.width = `${charityPercentage}%`;
+            document.getElementById('remaining-bar').style.width = `${remainingPercentage}%`;
         }
 
         document.addEventListener("DOMContentLoaded", function() {
             const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
             const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
             
-            const centerAmount = calculateCenterAmount(democratAmount, republicanAmount);
+            const { charityAmount, remainingAmount } = calculateAmounts(democratAmount, republicanAmount);
+            
             const totalAmountElement = document.getElementById("total-amount");
-            totalAmountElement.textContent = `$${centerAmount.toLocaleString()}`;
+            totalAmountElement.textContent = `$${charityAmount.toLocaleString()}`;
 
-            updateBarWidths(democratAmount, republicanAmount);
+            // Display original amounts
+            document.getElementById("democrat-amount").textContent = `$${democratAmount.toLocaleString()}`;
+            document.getElementById("republican-amount").textContent = `$${republicanAmount.toLocaleString()}`;
+
+            // Update bar widths
+            updateBarWidths(democratAmount, republicanAmount, charityAmount, remainingAmount);
 
             const faqToggleButton = document.querySelector('.faq-toggle-button');
             const faqSection = document.getElementById('faq-section');
