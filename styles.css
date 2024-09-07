@@ -143,31 +143,33 @@ body {
 
 .accordion {
     font-size: inherit;
-    padding: 1.2em 2em;
+    padding: 0 24px 0 24px;
     width: 66%;
     text-align: left;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
-
-.accordion__item {
-    margin-bottom: 1em;
-}
 
 .accordion__head {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap:12px;
     cursor: pointer;
 }
 
 .accordion__title {
     font-size: 18px;
     color: #333;
-    margin: 0;
 }
 
 .accordion__opener {
     display: inline;
-    margin-left: .5rem;
+    transform: scaleY(.8);
+    font-size: 12px;
+    transform: rotate(-90deg);
+    color: #a4a4a4;
 }
 
 .accordion__opener input {
