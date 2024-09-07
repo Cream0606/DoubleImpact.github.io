@@ -4,7 +4,7 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8ecc9;
+    background-color: #b5b5b5;
     display: flex;
     justify-content: center;
     align-items: flex-start; 
@@ -13,8 +13,10 @@ body {
 
 .container {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 24px;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 96px 0;
     text-align: center;
     width: 100%;
     display: flex;
@@ -52,7 +54,7 @@ body {
 }
 
 .democrat img, .republican img {
-    width: 100px; 
+    width: 64px; 
     height: auto;
 }
 
@@ -122,9 +124,9 @@ body {
 }
 
 .charity-image {
-    width: 10px; 
+    width: 100px; 
     height: 100px;
-    object-fit: contain; 
+    object-fit: contain;    
     margin: 10px;
 }
 .faq-section-container {
@@ -132,6 +134,8 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    display:flex;
+    gap: 24px;
 }
 
 .faq-section-container h2 {
@@ -144,71 +148,73 @@ body {
 .accordion {
     font-size: inherit;
     padding: 0 24px 0 24px;
-    width: 66%;
+    width: 36%;
     text-align: left;
     border-radius: 8px;
     border: 1px solid #ddd;
 }
 
+.accordion__item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion__item:last-child {
+    border-bottom: none;
+}
+
+.accordion__input {
+    display: none;
+}
 
 .accordion__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap:12px;
+    padding: 15px 0;
     cursor: pointer;
 }
 
 .accordion__title {
     font-size: 18px;
     color: #333;
+    margin: 0;
 }
 
 .accordion__opener {
     display: inline;
     transform: scaleY(.8);
     font-size: 12px;
-    transform: rotate(-90deg);
     color: #a4a4a4;
 }
 
-.accordion__opener input {
-    display: none;
-}
-
-.accordion__opener label {
-    cursor: pointer;
-}
-
-.accordion__opener label i {
+.accordion__opener i {
     display: inline-block;
     transition: transform .2s ease;
-    font-style: normal;
 }
 
 .accordion__description {
     overflow: hidden;
-    margin-top: 0;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows .2s, margin-top .2s; 
-    color: #666;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
 }
 
 .accordion__description p {
-    overflow: hidden;
+    padding: 0 0 15px 0;
+    margin: 0;
     font-size: 16px;
     line-height: 1.4;
+    color: #666;
 }
 
-.accordion__opener input:checked + label i {
-    transform: rotate(90deg);
+.accordion__input:checked + .accordion__head .accordion__opener i {
+    transform: rotate(180deg);
 }
 
-.accordion__head:has(.accordion__opener input:checked) + .accordion__description {
-    margin-top: 10px;
-    grid-template-rows: 1fr;
+.accordion__input:checked ~ .accordion__description {
+    max-height: 600px; /* Adjust this value based on your content */
+    transition: max-height 0.5s ease-in;
 }
+
 .faq-toggle-button {
     background-color: #005ea6;
     color: white;
