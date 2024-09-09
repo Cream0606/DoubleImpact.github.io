@@ -10,10 +10,10 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
     const maxAmount = Math.max(totalParties, totalCharity);
 
     function setCircleSize(element, amount) {
-        const size = Math.max(200, (amount / maxAmount) * 500); // Increased from 50 and 150 to 80 and 250
+        const size = Math.max(200, (amount / maxAmount) * 500); 
         element.style.width = `${size}px`;
         element.style.height = `${size}px`;
-        element.style.fontSize = `24px`; // Adjusted from 8 to 6 for larger text
+        element.style.fontSize = `24px`; 
     }
 
     setCircleSize(document.querySelector('.democrat-circle'), democratAmount);
@@ -21,25 +21,23 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
     setCircleSize(document.querySelector('.charity-circle'), charityAmount);
     setCircleSize(document.querySelector('.remaining-circle'), remainingAmount);
 
-    // Update amounts
     document.getElementById('democrat-amount').textContent = `$${democratAmount.toLocaleString()}`;
     document.getElementById('republican-amount').textContent = `$${republicanAmount.toLocaleString()}`;
     document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()}`;
     document.getElementById('remaining-amount').textContent = `$${remainingAmount.toLocaleString()}`;
 
-    // Set the color of the remaining circle based on the winning party
     const remainingCircle = document.querySelector('.remaining-circle');
     const remainingAmountElement = document.getElementById('remaining-amount');
     if (democratAmount > republicanAmount) {
-        remainingCircle.style.borderColor = '#0015BC'; // Democrat blue
+        remainingCircle.style.borderColor = '#0015BC'; 
         remainingCircle.style.color = '#0015BC';
         remainingAmountElement.style.color = '#0015BC';
     } else if (republicanAmount > democratAmount) {
-        remainingCircle.style.borderColor = '#FF0000'; // Republican red
+        remainingCircle.style.borderColor = '#FF0000'; 
         remainingCircle.style.color = '#FF0000';
         remainingAmountElement.style.color = '#FF0000';
     } else {
-        remainingCircle.style.borderColor = '#c29d25'; // Neutral color for a tie
+        remainingCircle.style.borderColor = '#c29d25';
         remainingCircle.style.color = '#c29d25';
         remainingAmountElement.style.color = '#c29d25';
     }
@@ -58,11 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const { charityAmount, remainingAmount } = calculateAmounts(democratAmount, republicanAmount);
     
-    // Update circle sizes and amounts
     updateCircleSizes(democratAmount, republicanAmount, charityAmount, remainingAmount);
     
-    // Update days remaining
     updateDaysRemaining();
-    // Update every day at midnight
     setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
 });
