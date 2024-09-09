@@ -187,7 +187,39 @@ body {
     color: #3b8458;
 }
 
-/* Charities section styles */
+.description-section {
+    margin-top: 40px;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.description-header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.description-title {
+    font-size: 32px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.description-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+}
+
 .charities-section {
     margin-top: 40px;
     display: flex;
@@ -268,7 +300,6 @@ body {
     height: 80px;
 }
 
-/* FAQ section styles */
 .faq-section-container {
     display: flex;
     flex-direction: column;
@@ -355,52 +386,43 @@ body {
     transition: max-height 0.2s ease-in;
 }
 
-/* Media queries */
-@media (max-width: 800px) {
-    .charities-grid {
-        grid-template-columns: 1fr;
-    }
+.team-section {
+    padding: 48px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
-@media (max-width: 480px) {
-    .container {
-        margin: 0;
-    }
-    
-    .accordion {
-        width: 80%;
-        padding: 0 16px;
-    }
-
-    .circle-container {
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    .circle {
-        margin-bottom: -48px;
-        aspect-ratio: 1 / 1;
-    }
-    
-    .donate-section {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 12px;
-    }
-    
-    .donate-button-democratic,
-    .donate-button-republican {
-        width: 100%;
-        max-width: 92vw;
-    }
-
-    .countdown-container {
-        margin-top: 16px;
-    }
-    
-    .countdown-text {
-        font-size: 16px;
-    }
+.team-section h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    color: #333;
+}
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
+.team-member {
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
