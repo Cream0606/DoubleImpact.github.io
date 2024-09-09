@@ -259,34 +259,62 @@ body {
     gap: 12px;
     padding: 24px 0;
 }
-
 .charity-item {
     border-radius: 8px;
     border: 1px solid #ddd;
-    padding: 24px 24px 0 24px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-}
-
-.charity-item h3 {  
-    text-align: left;
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
-}
-
-.charity-item p {
-    text-align: left;
-    font-size: 16px;
-    color: #666;
-    line-height: 1.4;
+    align-items: center;
+    text-align: center;
+    min-height: 300px; 
 }
 
 .charity-image-container {
     height: 120px; 
     display: flex;
-    align-self: center;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.charity-image {
+    width: 100px; 
+    height: auto; 
+    object-fit: contain; 
+}
+
+.charity-item h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.charity-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px; 
+}
+
+.charity-item a {
+    color: #3b8458; 
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.charity-item a:hover {
+    color: #1d6f4b;
+    border-bottom: 2px solid #1d6f4b;
+}
+.charity-image-container {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     margin-bottom: 24px;
 }
 
@@ -425,4 +453,27 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 16px;
+}
+
+.charity-link {
+    color: #333; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent; 
+}
+
+.charity-link:hover {
+    color: #3b8458;
+    border-bottom: 2px solid #3b8458; 
+}
+
+@media only screen and (max-width: 600px) {
+    .charity-link {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 12px 0;
+    }
 }
