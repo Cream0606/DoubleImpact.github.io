@@ -309,7 +309,7 @@ body {
 
 .charity-item a:hover {
     color: #1d6f4b;
-    border-bottom: 2px solid #1d6f4b;
+    /* border-bottom: 2px solid #1d6f4b; */
 }
 .charity-image-container {
     height: 180px;
@@ -489,7 +489,8 @@ body {
 
 .charity-link:hover {
     color: #3b8458;
-    border-bottom: 2px solid #3b8458; 
+    text-decoration: none;
+    /* border-bottom: 2px solid #3b8458;  */
 }
 
 @media only screen and (max-width: 600px) {
@@ -544,6 +545,13 @@ body {
     color: #fff;
 }
 
+.about-us-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 24px 40px;
+    text-align: center;
+    line-height: 1.6;
 .twitter-link:hover {
     color: #1DA1F2;
 }
