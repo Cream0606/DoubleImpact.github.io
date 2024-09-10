@@ -280,7 +280,7 @@ body {
 }
 
 .charity-image {
-    width: 100px; 
+    width: 110px; 
     height: auto; 
     object-fit: contain; 
 }
@@ -312,7 +312,7 @@ body {
     border-bottom: 2px solid #1d6f4b;
 }
 .charity-image-container {
-    height: 120px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -320,13 +320,14 @@ body {
 }
 
 .charity-image {
-    width: 140px;
+    width: 150px;
+    height: auto;
     object-fit: contain;
 }
 
 .charities-grid .charity-item:nth-child(2) .charity-image {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
 }
 
 .faq-section-container {
