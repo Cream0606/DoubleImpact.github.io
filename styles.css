@@ -311,7 +311,7 @@ body {
 
 .charity-item a:hover {
     color: #1d6f4b;
-    border-bottom: 2px solid #1d6f4b;
+    /* border-bottom: 2px solid #1d6f4b; */
 }
 .charity-image-container {
     height: 120px;
@@ -469,7 +469,8 @@ body {
 
 .charity-link:hover {
     color: #3b8458;
-    border-bottom: 2px solid #3b8458; 
+    text-decoration: none;
+    /* border-bottom: 2px solid #3b8458;  */
 }
 
 @media only screen and (max-width: 600px) {
@@ -511,7 +512,7 @@ body {
     font-size: 18px;
     color: #666;
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 24px 40px;
     text-align: center;
     line-height: 1.6;
 }
