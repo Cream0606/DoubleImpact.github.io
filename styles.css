@@ -30,6 +30,7 @@ body {
     flex: 1;
 }
 
+/* Header Styles */
 .header-container {
     display: flex;
     flex-direction: column;
@@ -70,6 +71,7 @@ body {
     border: 2px solid #ddd;
 }
 
+/* Donate Section Styles */
 .donate-section {
     width: 100%;
     justify-content: center;
@@ -176,42 +178,6 @@ body {
     display: none;
 }
 
-@media (min-width: 768px) {
-    .circle-container {
-        flex-direction: row;
-    }
-
-    .arrow-container {
-        flex-direction: column;
-    }
-
-    .right-arrow {
-        display: block;
-    }
-
-    .down-arrow {
-        display: none;
-    }
-}
-
-@media (max-width: 767px) {
-    .circle-container {
-        flex-direction: column;
-    }
-
-    .arrow-container {
-        flex-direction: column;
-    }
-
-    .right-arrow {
-        display: none;
-    }
-
-    .down-arrow {
-        display: block;
-    }
-}
-
 .circle {
     display: flex;
     flex-direction: column;
@@ -220,10 +186,10 @@ body {
     font-weight: 600;
     transition: all 0.2s ease-in-out;
     border-radius: 50%;
-    width: 120px; /* Default size */
-    height: 120px; /* Default size */
-    max-width: 25vw; /* Responsive size */
-    max-height: 25vw; /* Responsive size */
+    width: 120px;
+    height: 120px;
+    max-width: 25vw;
+    max-height: 25vw;
 }
 
 .circle p {
@@ -236,20 +202,6 @@ body {
 .circle span {
     font-size: 16px;
     margin-top: 5px;
-}
-
-@media (max-width: 767px) {
-    .circle-row {
-        align-items: center;
-    }
-
-    .circle {
-        width: 40vw; /* Larger on mobile */
-        height: 40vw; /* Larger on mobile */
-        max-width: 200px; /* Cap the maximum size */
-        max-height: 200px; /* Cap the maximum size */
-        margin-bottom: 16px;
-    }
 }
 
 .democrat-circle {
@@ -288,47 +240,15 @@ body {
     color: #3b8458;
 }
 
-.description-section {
-    margin-top: 40px;
-    display: flex;
-    padding: 24px;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.description-header-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.description-title {
-    font-size: 32px;
-    font-weight: 400;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-.description-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1.5;
-}
-
+/* Description and Charities Section Styles */
+.description-section,
 .charities-section {
-    margin-top: 40px;
     display: flex;
-    padding: 24px;
     flex-direction: column;
     gap: 24px;
 }
 
+.description-header-container,
 .charities-header-container {
     display: flex;
     flex-direction: column;
@@ -337,6 +257,7 @@ body {
     margin-bottom: 24px;
 }
 
+.description-title,
 .charities-title {
     font-size: 32px;
     font-weight: 400;
@@ -345,6 +266,7 @@ body {
     text-align: center;
 }
 
+.description-description,
 .charities-description {
     font-size: 18px;
     color: #666;
@@ -352,6 +274,7 @@ body {
     margin: 0 auto;
     text-align: center;
     line-height: 1.5;
+    padding: 0 12px;
 }
 
 .charities-grid {
@@ -359,18 +282,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 24px 0;
-}
-
-@media (max-width: 900px) {
-    .charities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .charities-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .charity-item {
@@ -385,17 +296,16 @@ body {
 }
 
 .charity-image-container {
-    height: 120px; 
+    height: 120px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
+    align-items: center; 
+    margin-bottom: 24px;
 }
 
 .charity-image {
-    width: 100px; 
-    height: auto; 
-    object-fit: contain; 
+    width: 140px;
+    object-fit: contain;
 }
 
 .charity-item h3 {
@@ -412,7 +322,8 @@ body {
     margin-bottom: 16px; 
 }
 
-.charity-item a {
+.charity-item a,
+.charity-link {
     color: #3b8458; 
     font-weight: 600;
     text-decoration: none;
@@ -420,28 +331,13 @@ body {
     transition: color 0.3s, border-bottom 0.3s;
 }
 
-.charity-item a:hover {
+.charity-item a:hover,
+.charity-link:hover {
     color: #1d6f4b;
     border-bottom: 2px solid #1d6f4b;
 }
-.charity-image-container {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-bottom: 24px;
-}
 
-.charity-image {
-    width: 140px;
-    object-fit: contain;
-}
-
-.charities-grid .charity-item:nth-child(2) .charity-image {
-    width: 80px;
-    height: 80px;
-}
-
+/* FAQ Section Styles */
 .faq-section-container {
     display: flex;
     flex-direction: column;
@@ -528,7 +424,160 @@ body {
     transition: max-height 0.2s ease-in;
 }
 
+/* Team Section Styles */
+.team-section {
+    padding: 48px 0;
+    text-align: center;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.about-header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.about-title {
+    font-size: 32px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.about-description,
+.about-us-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 12px;
+    line-height: 1.5;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 0;
+}
+
+.team-member {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 300px; 
+}
+
+.team-member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.team-member h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px; 
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 24px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .circle-container {
+        flex-direction: row;
+    }
+
+    .arrow-container {
+        flex-direction: column;
+    }
+
+    .right-arrow {
+        display: block;
+    }
+
+    .down-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .charities-grid,
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 767px) {
+    .circle-container {
+        flex-direction: column;
+    }
+
+    .arrow-container {
+        flex-direction: column;
+    }
+
+    .right-arrow {
+        display: none;
+    }
+
+    .down-arrow {
+        display: block;
+    }
+
+    .circle-row {
+        align-items: center;
+    }
+
+    .circle {
+        width: 40vw;
+        height: 40vw;
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 16px;
+    }
+
     .accordion {
         width: 80%;
         padding: 0 16px;
@@ -543,9 +592,273 @@ body {
     }
 }
 
+@media (max-width: 600px) {
+    .charities-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        max-width: none;
+    }
+
+    .charity-link {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+.circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    max-width: 25vw;
+    max-height: 25vw;
+}
+
+.circle p {
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.circle span {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.democrat-circle {
+    border: 1px dashed #0015BC; 
+    color: #0015BC;
+}
+
+.republican-circle {
+    border: 1px dashed #FF0000;     
+    color: #FF0000;
+}
+
+.charity-circle {
+    border: 1px dashed #47a56d; 
+    color: #47a56d;
+}
+
+.remaining-circle {
+    border: 1px dashed #c29d25; 
+    color: #c29d25;
+}
+
+/* Countdown styles */
+.countdown-container {
+    text-align: center;
+    margin: -36px 0;
+}
+
+.countdown-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #676767;
+}
+
+#days-remaining {
+    color: #3b8458;
+}
+
+/* Description and Charities Section Styles */
+.description-section,
+.charities-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.description-header-container,
+.charities-header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.description-title,
+.charities-title {
+    font-size: 32px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.description-description,
+.charities-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 12px;
+}
+
+.charities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 12px;
+}
+
+.charity-item {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 300px; 
+}
+
+.charity-image-container {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 24px;
+}
+
+.charity-image {
+    width: 140px;
+    object-fit: contain;
+}
+
+.charity-item h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.charity-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px; 
+}
+
+.charity-item a,
+.charity-link {
+    color: #3b8458; 
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.charity-item a:hover,
+.charity-link:hover {
+    color: #1d6f4b;
+    border-bottom: 2px solid #1d6f4b;
+}
+
+/* FAQ Section Styles */
+.faq-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 24px;
+}
+
+.faq-section-container h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.accordion {
+    font-size: inherit;
+    padding: 0 24px;
+    width: 48%;
+    text-align: left;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.accordion__item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion__item:last-child {
+    border-bottom: none;
+}
+
+.accordion__input {
+    display: none;
+}
+
+.accordion__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.accordion__title {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.accordion__opener {
+    display: inline;
+    transform: scaleY(.8);
+    font-size: 12px;
+    color: #a4a4a4;
+}
+
+.accordion__opener i {
+    display: inline-block;
+    transition: transform .2s ease;
+}
+
+.accordion__description {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+.accordion__description p {
+    padding: 0 0 15px 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #666;
+}
+
+.accordion__input:checked + .accordion__head .accordion__opener i {
+    transform: rotate(180deg);
+}
+
+.accordion__input:checked ~ .accordion__description {
+    max-height: 600px;
+    transition: max-height 0.2s ease-in;
+}
+
+/* Team Section Styles */
 .team-section {
     padding: 48px 0;
-    background-color: #f9f9f9;
     text-align: center;
     width: 100%; 
     display: flex;
@@ -575,24 +888,26 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    line-height: 1.6;
+    padding: 0 12px;
+    line-height: 1.5;
 }
 
 .team-grid {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 12px;
 }
 
 .team-member {
-    max-width: 300px;
-    padding: 16px;
-    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    min-height: 300px; 
 }
 
 .team-member-photo {
@@ -603,29 +918,21 @@ body {
     margin-bottom: 16px;
 }
 
-.charity-link {
-    color: #333; 
-    text-decoration: none;
+.team-member h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 18px;
     font-weight: 600;
+    color: #333;
+}
+
+.team-member p {
     font-size: 16px;
-    transition: color 0.3s ease;
-    border-bottom: 2px solid transparent; 
+    color: #666;
+    margin-bottom: 16px; 
 }
 
-.charity-link:hover {
-    color: #3b8458;
-    border-bottom: 2px solid #3b8458; 
-}
-
-@media only screen and (max-width: 600px) {
-    .charity-link {
-        font-size: 18px;
-        display: block;
-        text-align: center;
-        padding: 12px 0;
-    }
-}
-
+/* Footer Styles */
 .footer {
     background-color: #333;
     color: #fff;
@@ -647,11 +954,113 @@ body {
     font-size: 14px;
 }
 
-.about-us-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1.6;
+/* Media Queries */
+@media (min-width: 768px) {
+    .circle-container {
+        flex-direction: row;
+    }
+
+    .arrow-container {
+        flex-direction: column;
+    }
+
+    .right-arrow {
+        display: block;
+    }
+
+    .down-arrow {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    .circle-container {
+        flex-direction: column;
+    }
+
+    .arrow-container {
+        flex-direction: column;
+    }
+
+    .right-arrow {
+        display: none;
+    }
+
+    .down-arrow {
+        display: block;
+    }
+
+    .circle-row {
+        align-items: center;
+    }
+
+    .circle {
+        width: 40vw;
+        height: 40vw;
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 16px;
+    }
+
+    .accordion {
+        width: 80%;
+        padding: 0 16px;
+    }
+
+    .accordion__title {
+        font-size: 16px;
+    }
+
+    .accordion__description p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .charities-grid,
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .charities-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        max-width: none;
+    }
+
+    .charity-link {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+.charity-item a {
+    color: #3b8458; 
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.charity-item a:hover {
+    color: #1d6f4b;
+    border-bottom: 2px solid #1d6f4b;
+}
+
+@media only screen and (max-width: 600px) {
+    .charity-link {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 12px 0;
+    }
 }
