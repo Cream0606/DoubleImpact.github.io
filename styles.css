@@ -325,6 +325,11 @@ body {
     object-fit: contain;
 }
 
+
+.charity-item:nth-child(2) .charity-image {
+    scale: .7;
+}
+
 .team-member-photo {
     width: 120px;
     height: 120px;
