@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-/* Reset and base styles */
 body {
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
@@ -12,7 +11,6 @@ body {
     height: 100dvh;
 }
 
-/* Container styles */
 .container {
     background-color: white;
     border-radius: 8px;
@@ -25,7 +23,6 @@ body {
     gap: 48px;
 }
 
-/* Header styles */
 .header-container {
     display: flex;
     flex-direction: column;
@@ -64,7 +61,6 @@ body {
     border: 2px solid #ddd;
 }
 
-/* Donation section styles */
 .donate-section {
     width: 100%;
     justify-content: center;
