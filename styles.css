@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* General Styles */
 html {
     width: 100%;
     overflow-x: hidden;
+    overscroll-behavior: none;
+
 }
 
 body {
@@ -28,6 +31,7 @@ body {
     align-items: center;
     gap: 48px;
     flex: 1;
+
 }
 
 /* Header Styles */
@@ -240,16 +244,19 @@ body {
     color: #3b8458;
 }
 
-/* Description and Charities Section Styles */
+/* Common Section Styles */
 .description-section,
-.charities-section {
+.charities-section,
+.team-section {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding: 24px 12px;
 }
 
 .description-header-container,
-.charities-header-container {
+.charities-header-container,
+.about-header-container {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -258,7 +265,8 @@ body {
 }
 
 .description-title,
-.charities-title {
+.charities-title,
+.about-title {
     font-size: 32px;
     font-weight: 400;
     color: #333;
@@ -267,24 +275,28 @@ body {
 }
 
 .description-description,
-.charities-description {
+.charities-description,
+.about-description {
     font-size: 18px;
     color: #666;
-    max-width: 640px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     line-height: 1.5;
     padding: 0 12px;
 }
 
-.charities-grid {
+/* Grid Styles */
+.charities-grid,
+.team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 24px 0;
 }
 
-.charity-item {
+.charity-item,
+.team-member {
     border-radius: 8px;
     border: 1px solid #ddd;
     padding: 24px;
@@ -295,7 +307,8 @@ body {
     min-height: 300px; 
 }
 
-.charity-image-container {
+.charity-image-container,
+.team-member-photo {
     height: 120px;
     display: flex;
     justify-content: center;
@@ -308,7 +321,15 @@ body {
     object-fit: contain;
 }
 
-.charity-item h3 {
+.team-member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.charity-item h3,
+.team-member h3 {
     margin-top: 12px;
     margin-bottom: 8px;
     font-size: 18px;
@@ -316,7 +337,8 @@ body {
     color: #333;
 }
 
-.charity-item p {
+.charity-item p,
+.team-member p {
     font-size: 16px;
     color: #666;
     margin-bottom: 16px; 
@@ -422,83 +444,6 @@ body {
 .accordion__input:checked ~ .accordion__description {
     max-height: 600px;
     transition: max-height 0.2s ease-in;
-}
-
-/* Team Section Styles */
-.team-section {
-    padding: 48px 0;
-    text-align: center;
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-
-.about-header-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 48px;
-}
-
-.about-title {
-    font-size: 32px;
-    font-weight: 400;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-.about-description,
-.about-us-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 12px;
-    line-height: 1.5;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 24px 0;
-}
-
-.team-member {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 300px; 
-}
-
-.team-member-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 16px;
-}
-
-.team-member h3 {
-    margin-top: 12px;
-    margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-}
-
-.team-member p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px; 
 }
 
 /* Footer Styles */
@@ -610,199 +555,6 @@ body {
     }
 }
 
-.circle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    transition: all 0.2s ease-in-out;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    max-width: 25vw;
-    max-height: 25vw;
-}
-
-.circle p {
-    font-size: 14px;
-    margin: 0;
-    text-align: center;
-    padding: 0 5px;
-}
-
-.circle span {
-    font-size: 16px;
-    margin-top: 5px;
-}
-
-.democrat-circle {
-    border: 1px dashed #0015BC; 
-    color: #0015BC;
-}
-
-.republican-circle {
-    border: 1px dashed #FF0000;     
-    color: #FF0000;
-}
-
-.charity-circle {
-    border: 1px dashed #47a56d; 
-    color: #47a56d;
-}
-
-.remaining-circle {
-    border: 1px dashed #c29d25; 
-    color: #c29d25;
-}
-
-/* Countdown styles */
-.countdown-container {
-    text-align: center;
-    margin: -36px 0;
-}
-
-.countdown-text {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #676767;
-}
-
-#days-remaining {
-    color: #3b8458;
-}
-
-/* Description and Charities Section Styles */
-.description-section,
-.charities-section {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.description-header-container,
-.charities-header-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.description-title,
-.charities-title {
-    font-size: 32px;
-    font-weight: 400;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-.description-description,
-.charities-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1.5;
-    padding: 0 12px;
-}
-
-.charities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 24px 12px;
-}
-
-.charity-item {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 300px; 
-}
-
-.charity-image-container {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-bottom: 24px;
-}
-
-.charity-image {
-    width: 140px;
-    object-fit: contain;
-}
-
-.charity-item h3 {
-    margin-top: 12px;
-    margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-}
-
-.charity-item p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px; 
-}
-
-.charity-item a,
-.charity-link {
-    color: #3b8458; 
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s, border-bottom 0.3s;
-}
-
-.charity-item a:hover,
-.charity-link:hover {
-    color: #1d6f4b;
-    border-bottom: 2px solid #1d6f4b;
-}
-
-/* FAQ Section Styles */
-.faq-section-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    gap: 24px;
-}
-
-.faq-section-container h2 {
-    font-size: 24px;
-    color: #333;
-    font-weight: 400;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.accordion {
-    font-size: inherit;
-    padding: 0 24px;
-    width: 48%;
-    text-align: left;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-.accordion__item {
-    border-bottom: 1px solid #ddd;
-}
-
-.accordion__item:last-child {
-    border-bottom: none;
-}
-
 .accordion__input {
     display: none;
 }
@@ -856,82 +608,6 @@ body {
     transition: max-height 0.2s ease-in;
 }
 
-/* Team Section Styles */
-.team-section {
-    padding: 48px 0;
-    text-align: center;
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-
-.about-header-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 48px;
-}
-
-.about-title {
-    font-size: 32px;
-    font-weight: 400;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-.about-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 12px;
-    line-height: 1.5;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 24px 12px;
-}
-
-.team-member {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 300px; 
-}
-
-.team-member-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 16px;
-}
-
-.team-member h3 {
-    margin-top: 12px;
-    margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-}
-
-.team-member p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px; 
-}
-
 /* Footer Styles */
 .footer {
     background-color: #333;
@@ -973,7 +649,12 @@ body {
     }
 }
 
-
+@media (max-width: 900px) {
+    .charities-grid,
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 @media (max-width: 767px) {
     .circle-container {
@@ -1015,13 +696,6 @@ body {
 
     .accordion__description p {
         font-size: 14px;
-    }
-}
-
-@media (max-width: 900px) {
-    .charities-grid,
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
