@@ -10,10 +10,18 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
     const maxAmount = Math.max(totalParties, totalCharity);
 
     function setCircleSize(element, amount) {
-        const size = Math.max(200, (amount / maxAmount) * 500); 
+        const baseSize = window.innerWidth <= 767 ? Math.min(window.innerWidth * 0.4, 200) : Math.min(window.innerWidth * 0.25, 200);
+        const size = Math.max(baseSize, (amount / maxAmount) * baseSize * 2);
+        const fontSize = 24;
+
         element.style.width = `${size}px`;
         element.style.height = `${size}px`;
-        element.style.fontSize = `24px`; 
+        element.style.fontSize = `${fontSize}px`;
+        
+        const amountSpan = element.querySelector('span');
+        if (amountSpan) {
+            amountSpan.style.fontSize = `${fontSize * 1.2}px`;
+        }
     }
 
     setCircleSize(document.querySelector('.democrat-circle'), democratAmount);
@@ -21,6 +29,7 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
     setCircleSize(document.querySelector('.charity-circle'), charityAmount);
     setCircleSize(document.querySelector('.remaining-circle'), remainingAmount);
 
+    // Update amount text
     document.getElementById('democrat-amount').textContent = `$${democratAmount.toLocaleString()}`;
     document.getElementById('republican-amount').textContent = `$${republicanAmount.toLocaleString()}`;
     document.getElementById('charity-amount').textContent = `$${charityAmount.toLocaleString()}`;
@@ -32,46 +41,39 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
         remainingCircle.style.borderColor = '#0015BC'; 
         remainingCircle.style.color = '#0015BC';
         remainingAmountElement.style.color = '#0015BC';
-        remainingCircle.querySelector('p').textContent = 'Towards Democratic';
+        remainingCircle.querySelector('p').innerHTML = 'Towards <br> Democratic';
     } else if (republicanAmount > democratAmount) {
         remainingCircle.style.borderColor = '#FF0000'; 
         remainingCircle.style.color = '#FF0000';
         remainingAmountElement.style.color = '#FF0000';
-        remainingCircle.querySelector('p').textContent = 'Towards Republican';
+        remainingCircle.querySelector('p').innerHTML = 'Towards <br> Republican';
     } else {
         remainingCircle.style.borderColor = '#c29d25';
         remainingCircle.style.color = '#c29d25';
         remainingAmountElement.style.color = '#c29d25';
-        remainingCircle.querySelector('p').textContent = 'Towards Party';
+        remainingCircle.querySelector('p').innerHTML = ' ';
     }
 }
 
 function updateDaysRemaining() {
     const now = new Date();
-    const dayOfWeek = now.getDay(); 
-    const daysUntilSunday = (7 - dayOfWeek) % 7; 
-    const nextSunday = new Date(now);
-    
-    if (daysUntilSunday === 0) {
-        nextSunday.setDate(now.getDate() + 7);
-    } else {
-        nextSunday.setDate(now.getDate() + daysUntilSunday);
-    }
-
-    const timeDifference = nextSunday - now;
+    const lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    const timeDifference = lastDayOfMonth - now;
     
     const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     
+    const daysRemainingElement = document.getElementById('days-remaining');
+    
     if (daysRemaining > 1) {
-        document.getElementById('days-remaining').textContent = `${daysRemaining} days`;
+        daysRemainingElement.textContent = `${daysRemaining} days`;
     } else if (daysRemaining === 1) {
-        document.getElementById('days-remaining').textContent = `1 day`;
+        daysRemainingElement.textContent = `1 day`;
     } else if (hoursRemaining > 0) {
-        document.getElementById('days-remaining').textContent = `${hoursRemaining} hours and ${minutesRemaining} minutes`;
+        daysRemainingElement.textContent = `${hoursRemaining} hours and ${minutesRemaining} minutes`;
     } else {
-        document.getElementById('days-remaining').textContent = `${minutesRemaining} minutes`;
+        daysRemainingElement.textContent = `${minutesRemaining} minutes`;
     }
 }
 
@@ -108,16 +110,25 @@ function updateCharityContent() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+// Add this function to handle resizing
+function handleResize() {
     const democratAmount = parseFloat(document.getElementById("democrat-amount").textContent.replace(/[^0-9.-]+/g,""));
     const republicanAmount = parseFloat(document.getElementById("republican-amount").textContent.replace(/[^0-9.-]+/g,""));
     
     const { charityAmount, remainingAmount } = calculateAmounts(democratAmount, republicanAmount);
     
     updateCircleSizes(democratAmount, republicanAmount, charityAmount, remainingAmount);
-    
-    updateDaysRemaining();
-    setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
-});
+}
 
-window.addEventListener('resize', updateCharityContent);
+// Call handleResize on window resize
+window.addEventListener('resize', handleResize);
+
+// Call handleResize on initial load
+document.addEventListener("DOMContentLoaded", handleResize);
+
+// Call updateDaysRemaining immediately and then every minute
+updateDaysRemaining();
+setInterval(updateDaysRemaining, 60000);
+
+// Make sure to call updateDaysRemaining when the DOM is loaded
+document.addEventListener('DOMContentLoaded', updateDaysRemaining);
