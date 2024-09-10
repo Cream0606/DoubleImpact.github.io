@@ -98,4 +98,5 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
 });
 
+updateCharityContent();
 window.addEventListener('resize', updateCharityContent);

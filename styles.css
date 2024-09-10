@@ -271,6 +271,7 @@ body {
     align-items: center;
     text-align: center;
     min-height: 300px; 
+    max-width: 400px;
 }
 
 .charity-image-container {
@@ -511,7 +512,7 @@ body {
     font-size: 18px;
     color: #666;
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 24px 40px;
     text-align: center;
     line-height: 1.6;
 }
