@@ -48,9 +48,31 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
 
 function updateDaysRemaining() {
     const now = new Date();
-    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    const daysRemaining = endOfMonth.getDate() - now.getDate() + 1;
-    document.getElementById('days-remaining').textContent = daysRemaining;
+    const dayOfWeek = now.getDay(); 
+    const daysUntilSunday = (7 - dayOfWeek) % 7; 
+    const nextSunday = new Date(now);
+    
+    if (daysUntilSunday === 0) {
+        nextSunday.setDate(now.getDate() + 7);
+    } else {
+        nextSunday.setDate(now.getDate() + daysUntilSunday);
+    }
+
+    const timeDifference = nextSunday - now;
+    
+    const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    
+    if (daysRemaining > 1) {
+        document.getElementById('days-remaining').textContent = `${daysRemaining} days`;
+    } else if (daysRemaining === 1) {
+        document.getElementById('days-remaining').textContent = `1 day`;
+    } else if (hoursRemaining > 0) {
+        document.getElementById('days-remaining').textContent = `${hoursRemaining} hours and ${minutesRemaining} minutes`;
+    } else {
+        document.getElementById('days-remaining').textContent = `${minutesRemaining} minutes`;
+    }
 }
 
 const fullDescriptions = [
