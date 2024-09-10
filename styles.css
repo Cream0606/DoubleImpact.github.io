@@ -6,27 +6,25 @@ body {
     padding: 0;
     background-color: #b5b5b5;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    height: 100dvh;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
     background-color: white;
-    border-radius: 8px;
-    margin: 8px;
-    padding: 96px 0 244px;
+    padding: 96px 0 0 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 48px;
+    flex: 1;
 }
 
 .header-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
     align-items: center;
 }
 
@@ -53,7 +51,7 @@ body {
     width: 64px;
     height: 64px;
     align-items: center;
-    font-size: 48px;
+    font-size: 58px;
     padding: 16px;
     color: #3a3a3a;
     border-radius: 24%;
@@ -138,7 +136,6 @@ body {
     border-radius: 50%;
     min-width: 120px; 
     min-height: 120px; 
-    margin: 0 -24px;
 }
 
 .circle p {
@@ -271,6 +268,7 @@ body {
     align-items: center;
     text-align: center;
     min-height: 300px; 
+    max-width: 400px;
 }
 
 .charity-image-container {
@@ -282,7 +280,7 @@ body {
 }
 
 .charity-image {
-    width: 100px; 
+    width: 110px; 
     height: auto; 
     object-fit: contain; 
 }
@@ -314,7 +312,7 @@ body {
     /* border-bottom: 2px solid #1d6f4b; */
 }
 .charity-image-container {
-    height: 120px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -322,13 +320,14 @@ body {
 }
 
 .charity-image {
-    width: 140px;
+    width: 150px;
+    height: auto;
     object-fit: contain;
 }
 
 .charities-grid .charity-item:nth-child(2) .charity-image {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
 }
 
 .faq-section-container {
@@ -337,6 +336,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 24px;
+    margin-bottom: 50px;
 }
 
 .faq-section-container h2 {
@@ -427,12 +427,32 @@ body {
     align-items: center; 
 }
 
-.team-section h2 {
+.about-header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.about-title {
     font-size: 32px;
     font-weight: 400;
-    margin-bottom: 32px;
     color: #333;
+    margin: 0;
+    text-align: center;
 }
+
+.about-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
 .team-grid {
     display: flex;
     justify-content: center;
@@ -481,31 +501,48 @@ body {
         padding: 12px 0;
     }
 }
-
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 24px;
+    background-color: #0e1b20;
+    padding: 50px;
     text-align: center;
-    width: 100%;
-    margin-top: 40px;
-    position: relative;
-    bottom: 0;
-    left: 0; 
-    justify-content: center; 
-
+    color: #f0e4ce;
+    font-family: 'Arial', sans-serif;
 }
 
-.footer-content {
+.footer-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #a6a6a6;
+}
+
+.social-links {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-.footer p {
-    margin: 0;
-    font-size: 14px;
+.social-link {
+    font-size: 20px;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #000000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #1a5a6b;
+    color: #fff;
 }
 
 .about-us-description {
@@ -515,4 +552,14 @@ body {
     margin: 0 24px 40px;
     text-align: center;
     line-height: 1.6;
+.twitter-link:hover {
+    color: #1DA1F2;
+}
+
+.github-link:hover {
+    color: #333;
+}
+
+.email-link:hover {
+    color: #EA4335;
 }

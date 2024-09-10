@@ -48,14 +48,36 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
 
 function updateDaysRemaining() {
     const now = new Date();
-    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    const daysRemaining = endOfMonth.getDate() - now.getDate() + 1;
-    document.getElementById('days-remaining').textContent = daysRemaining;
+    const dayOfWeek = now.getDay(); 
+    const daysUntilSunday = (7 - dayOfWeek) % 7; 
+    const nextSunday = new Date(now);
+    
+    if (daysUntilSunday === 0) {
+        nextSunday.setDate(now.getDate() + 7);
+    } else {
+        nextSunday.setDate(now.getDate() + daysUntilSunday);
+    }
+
+    const timeDifference = nextSunday - now;
+    
+    const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    
+    if (daysRemaining > 1) {
+        document.getElementById('days-remaining').textContent = `${daysRemaining} days`;
+    } else if (daysRemaining === 1) {
+        document.getElementById('days-remaining').textContent = `1 day`;
+    } else if (hoursRemaining > 0) {
+        document.getElementById('days-remaining').textContent = `${hoursRemaining} hours and ${minutesRemaining} minutes`;
+    } else {
+        document.getElementById('days-remaining').textContent = `${minutesRemaining} minutes`;
+    }
 }
 
 const fullDescriptions = [
     'Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child\'s dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.',
-    'Systemic Altruism focuses on using evidence and data to drive charitable giving toward the most effective causes. By working to identify solutions that have a long-lasting, high-impact effect on global problems, Systemic Altruism channels donations toward the issues that matter most, such as poverty alleviation, climate change, and public health. Your contribution helps amplify the impact of global giving by supporting projects that prioritize long-term, systemic change.',
+    'Heifer International works to end hunger and poverty around the world by empowering communities through sustainable agriculture and economic development. By providing livestock, seeds, and training, Heifer helps families lift themselves out of poverty, ensuring they can achieve self-reliance and build better futures. Your donation can transform lives by providing resources that create lasting change',
     'Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.',
     'Junior Achievement (JA) inspires and prepares young people to succeed in a global economy by delivering hands-on, experiential learning in financial literacy, work readiness, and entrepreneurship. Through its programs, JA equips students with the knowledge and skills they need to make smart academic and economic decisions, empowering them to own their future success.',
     'The Humane Society of the United States is the nation\'s most effective animal protection organization, working to end suffering for all animals. Through advocacy, education, and hands-on animal rescue efforts, the Humane Society aims to prevent cruelty, exploitation, and neglect while promoting the humane treatment of all creatures.',
@@ -64,7 +86,7 @@ const fullDescriptions = [
 
 const charityLinks = [
     '<a href="https://wish.org" target="_blank" class="charity-link">Learn More</a>',
-    '<a href="https://systemicaltruism.com" target="_blank" class="charity-link">Learn More</a>',
+    '<a href="https://www.heifer.org/gift-catalog/animals/index.html" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.feedingamerica.org/" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.juniorachievement.org" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.humanesociety.org" target="_blank" class="charity-link">Learn More</a>',
@@ -98,4 +120,5 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
 });
 
-// window.addEventListener('resize', updateCharityContent);
+updateCharityContent();
+window.addEventListener('resize', updateCharityContent);
