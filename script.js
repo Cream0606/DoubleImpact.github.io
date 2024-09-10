@@ -57,9 +57,14 @@ function updateCircleSizes(democratAmount, republicanAmount, charityAmount, rema
 
 function updateDaysRemaining() {
     const now = new Date();
-    const lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    const timeDifference = lastDayOfMonth - now;
     
+    const lastDayOfWeek = new Date(now);
+    const dayOfWeek = now.getDay(); 
+    const daysUntilSunday = 7 - dayOfWeek;
+    lastDayOfWeek.setDate(now.getDate() + daysUntilSunday);
+
+    const timeDifference = lastDayOfWeek - now;
+
     const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -76,7 +81,6 @@ function updateDaysRemaining() {
         daysRemainingElement.textContent = `${minutesRemaining} minutes`;
     }
 }
-
 const fullDescriptions = [
     'Make-A-Wish creates life-changing wishes for children with critical illnesses. By granting wishes, the organization provides hope, strength, and joy to children and their families during difficult times. Every donation helps bring a child\'s dream to life, offering them a moment of happiness and the emotional strength to fight their illness. With the help of generous donors, Make-A-Wish has made dreams come true for thousands of children across the globe.',
     'Heifer International works to end hunger and poverty around the world by empowering communities through sustainable agriculture and economic development. By providing livestock, seeds, and training, Heifer helps families lift themselves out of poverty, ensuring they can achieve self-reliance and build better futures. Your donation can transform lives by providing resources that create lasting change',

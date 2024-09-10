@@ -575,6 +575,7 @@ body {
     .accordion__description p {
         font-size: 14px;
     }
+}
   
 .charity-link:hover {
     color: #3b8458;
@@ -809,7 +810,8 @@ body {
 .logo-svg {
     width: 50px;
     height: 50px;
-=======
+}
+
 .about-us-description {
     font-size: 18px;
     color: #666;
@@ -817,6 +819,8 @@ body {
     margin: 0 24px 40px;
     text-align: center;
     line-height: 1.6;
+}
+
 .twitter-link:hover {
     color: #1DA1F2;
 }
