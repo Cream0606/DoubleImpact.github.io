@@ -663,9 +663,10 @@ body {
 }
 
 .footer-content h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 400;
     color: #fff;
+    margin-bottom: 15px;
 }
 
 .footer-content p {
