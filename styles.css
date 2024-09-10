@@ -335,6 +335,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 24px;
+    margin-bottom: 50px;
 }
 
 .faq-section-container h2 {
@@ -497,33 +498,58 @@ body {
         padding: 12px 0;
     }
 }
-
 .footer {
-    background-color: #333;
+    background-color: #0e1b20;
+    padding: 50px;
+    text-align: center;
+    color: #f0e4ce;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
     color: #fff;
-    padding: 24px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
 }
 
-.footer-content {
+.footer-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #a6a6a6;
+}
+
+.social-links {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    font-size: 20px;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    display: flex;
     align-items: center;
+    gap: 8px;
+    background-color: #000000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.footer p {
-    margin: 0;
-    font-size: 14px;
+.social-link:hover {
+    background-color: #1a5a6b;
+    color: #fff;
 }
 
-.about-us-description {
-    font-size: 18px;
-    color: #666;
-    max-width: 800px;
-    margin: 0 24px 40px;
-    text-align: center;
-    line-height: 1.6;
+.twitter-link:hover {
+    color: #1DA1F2;
+}
+
+.github-link:hover {
+    color: #333;
+}
+
+.email-link:hover {
+    color: #EA4335;
 }
