@@ -863,3 +863,22 @@ body {
     color: #050505;
     transform: scale(1.05); 
 }
+
+a {
+    color: #3b8458;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2a5e3d;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #3b8458;
+}
+
+a:active {
+    color: #1d6f4b;
+}
