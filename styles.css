@@ -693,20 +693,28 @@ body {
 
 .social-link {
     font-size: 20px;
-    color: hsl(0, 0%, 100%);
+    color: #000000 !important;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 10px 15px;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
 }
 
+.social-link i {
+    color: #000000; 
+}
+
 .social-link:hover {
-    background-color: #1a5a6b;
-    color: #fff;
+    background-color: #1a5a6b; 
+    color: #ffffff !important; 
+}
+
+.social-link:hover i {
+    color: #ffffff; 
 }
 
 /* Media Queries */
