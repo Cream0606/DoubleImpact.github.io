@@ -84,7 +84,8 @@ function updateDaysRemaining() {
 const fullDescriptions = [
     'Feeding America is the largest hunger-relief organization in the United States, working to provide meals to individuals and families struggling with food insecurity. Through its network of food banks, Feeding America distributes millions of meals each year to those in need, ensuring that no one has to go hungry. Every dollar donated helps put food on the table for families, children, and seniors who face hunger in communities across the country.',
     'Junior Achievement (JA) inspires and prepares young people to succeed in a global economy by delivering hands-on, experiential learning in financial literacy, work readiness, and entrepreneurship. Through its programs, JA equips students with the knowledge and skills they need to make smart academic and economic decisions, empowering them to own their future success.',
-    'The Humane Society of the United States is the nation\'s most effective animal protection organization, working to end suffering for all animals. Through advocacy, education, and hands-on animal rescue efforts, the Humane Society aims to prevent cruelty, exploitation, and neglect while promoting the humane treatment of all creatures.',
+    'GiveWell is a nonprofit dedicated to finding and recommending the most effective charities to help donors make informed decisions. Through rigorous research and analysis, GiveWell identifies high-impact giving opportunities, ensuring that donations are used efficiently to improve lives and reduce suffering globally. Their focus on evidence-based approaches makes it easier for individuals to maximize the impact of their contributions.',
+    'St. Jude Children’s Research Hospital is leading the way in treating and defeating pediatric catastrophic diseases such as cancer. No family ever receives a bill from St. Jude for treatment, travel, housing, or food, ensuring that financial concerns are never a barrier to life-saving care. Their groundbreaking research and commitment to saving lives have made a global impact in the fight against childhood diseases.',
     'Heifer International works to end hunger and poverty around the world by empowering communities through sustainable agriculture and economic development. By providing livestock, seeds, and training, Heifer helps families lift themselves out of poverty, ensuring they can achieve self-reliance and build better futures. Your donation can transform lives by providing resources that create lasting change',
     'The American Red Cross provides emergency assistance, disaster relief, and education in the United States. With a strong commitment to helping people in need, the Red Cross offers services like blood donation, disaster response, support for military families, and international relief efforts. Your donation ensures the continuation of these life-saving services.'
 ];
@@ -92,7 +93,8 @@ const fullDescriptions = [
 const charityLinks = [
     '<a href="https://www.feedingamerica.org/" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.juniorachievement.org" target="_blank" class="charity-link">Learn More</a>',
-    '<a href="https://www.humanesociety.org" target="_blank" class="charity-link">Learn More</a>',
+    '<a href="https://www.givewell.org/" target="_blank" class="charity-link">Learn More</a>',
+    '<a href="https://www.stjude.org/" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.heifer.org/gift-catalog/animals/index.html" target="_blank" class="charity-link">Learn More</a>',
     '<a href="https://www.redcross.org" target="_blank" class="charity-link">Learn More</a>'
 ];
